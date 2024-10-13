@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aanmeldformulier</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <style>
+        /* Algemeen stijlen */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        /* Stijl voor de afbeelding */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Formulier stijlen */
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #555;
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer stijl */
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer powered by */
+        .powered-by {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Coming soon</h1>
+    <img src="raflelargent.jpg" alt="Foto van Ambex logo">
+
+    <!-- Aanmeldformulier -->
+    <h2>Aanmeldformulier</h2>
+    <form action="mailto:raflelargent@gmail.com" method="POST" enctype="text/plain">
+        <label for="name">Naam:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="length">Lengte (in cm):</label>
+        <input type="number" id="length" name="length" required>
+
+        <label for="gender">Geslacht:</label>
+        <select id="gender" name="gender" required>
+            <option value="man">Man</option>
+            <option value="vrouw">Vrouw</option>
+            <option value="anders">Anders</option>
+        </select>
+
+        <label for="instagram">Instagram-pagina:</label>
+        <input type="text" id="instagram" name="instagram" placeholder="@gebruikersnaam">
+
+        <input type="submit" value="Verzenden">
+    </form>
+
+    <!-- Footer -->
+    <footer>
+        <p>Volg ons op sociale media:</p>
+        <a href="https://www.instagram.com/raflelargentofficial?igsh=cXZweW05MjhoYTFy" target="_blank">Instagram</a> |
+        <a href="https://www.tiktok.com/@raflelargent?_t=8qVlEo6IS4e&_r=1" target="_blank">TikTok</a>
+        <div class="powered-by">
+            Powered by <a href="https://www.ambex.nl" target="_blank">Ambex</a>
+        </div>
+    </footer>
+
+</body>
+</html>
