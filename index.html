@@ -1,145 +1,816 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rafle L'argent</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <style>
-        /* Algemeen stijlen */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 10px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide all elements by default */
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+#backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px; /* Verklein de breedte van de knop */
+            height: 40px; /* Verklein de hoogte van de knop */
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        #backToTop img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        #backToTop .hover-text {
+            display: none;
+            position: absolute;
+            bottom: 50px; /* Pas aan voor de positie van de hovertekst */
+            right: -15px; /* Pas aan voor uitlijning */
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            white-space: nowrap;
+            font-size: 12px;
+        }
+
+        #backToTop:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        #backToTop:hover .hover-text {
+            display: block;
+        }
+
+        #backToTop {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0; /* Start hidden */
+}
+
+.top-logo-container {
+  text-align: center; /* Center the logo horizontally */
+  margin-top: 20px; /* Add space between the logo and the top bar */
+}
+
+.top-logo {
+  width: 120px; /* Adjust size as needed */
+  height: auto;
+  transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.top-logo:hover {
+  transform: translateY(-5px); /* Create a hovering effect */
+}
+
+ /* Footer styling */
+ footer {
+            background-color: #1c1c1e;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        footer h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+
+/* Basis CSS voor de zijbalk */
+#sidenav {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: #2d353c; /* Huidige achtergrondkleur */
+    overflow-x: hidden;
+    transition: width 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 1;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px 0 0 10px;
+}
+
+/* Geanimeerde open-toestand */
+#sidenav.open {
+    width: 300px;
+}
+
+.sidenav-wrap {
+    padding: 3rem;
+}
+
+.sidenav-wrap ul {
+    padding-top: 3rem;
+    background-color: #2d353c; /* Zelfde kleur als #sidenav */
+}
+
+.sidenav-wrap ul li {
+    padding: 1.5rem 0;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.sidenav-wrap ul li:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateX(-10px);
+}
+
+/* Stijl voor de sluitknop */
+#closeBtn {
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.8rem;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transition: color 0.3s ease;
+}
+
+#closeBtn:hover {
+    color: #d1d1d1;
+}
+
+/* Stijlen voor sidenav en fade-in animatie */
+.sidenav-wrap ul {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+#sidenav.open .sidenav-wrap ul {
+    opacity: 1;
+}
+
+/* Content sectie */
+.content {
+    background-color: #2d353c;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.show .content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stijl voor gallery-items */
+.gallery-item {
+    background-color: #f1f1f1;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 4px;
+*/
+}
+
+.gallery-item h4,
+.gallery-item p {
+    margin: 10px 0;
+    color: #333;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.column {
+    flex: 1 1 calc(25% - 20px);
+    max-width: calc(25% - 20px);
+}
+
+@media screen and (max-width: 768px) {
+    .column {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .column {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+/* Links stijl */
+.container a, footer a {
+    display: inline-block;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #8e44ad;
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    border: 2px solid #8e44ad;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.container a:hover, footer a:hover {
+    background-color: #8e44ad;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Footer styling */
+footer {
+    background-color: #1c1c1e;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+footer h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+a {
+    display: block; /* Zorgt ervoor dat de link als een blok wordt behandeld */
+    text-align: center;
+    margin: 0 auto; /* Centraal op de pagina */
+    width: fit-content; /* Past breedte aan de tekst aan */
+    font-size: 24px; /* Pas de grootte van de tekst aan */
+    color: black; /* Kleur van de tekst */
+    text-decoration: none; /* Geen onderlijning */
+}
+
+/* Stijl voor de zwevende topbar */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    overflow: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1; /* Start visible */
+    text-align: center;
+}
+
+#backToTop img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#backToTop .hover-text {
+    display: none;
+    position: absolute;
+    bottom: 50px;
+    right: -15px;
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+#backToTop:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#backToTop:hover .hover-text {
+    display: block;
+}
+
+
+/* Ensure this brace closes the iframe styles */
+iframe {
+    margin-top: 80px;
+    width: 100%;
+    height: calc(100vh - 80px);
+    box-shadow: 0 2px 8px rgba(63, 69, 81, 0.16);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+} /* <-- Add closing brace here */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.nav {
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        h1, h2 {
-            color: #333;
-            text-align: center;
-        }
-
-        /* Stijl voor de afbeelding */
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Formulier stijlen */
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 20;
             width: 100%;
-            max-width: 400px;
+            max-width: 1200px;
+            opacity: 1; /* Volledige opaciteit standaard */
+            transition: top 0.3s ease, opacity 0.3s ease; /* Voor een soepele overgang */
         }
 
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
-            color: #555;
+        /* Hidden state of the navigation bar */
+        .nav.hidden {
+            top: -100px; /* Verberg de navbar door deze omhoog te bewegen */
+            opacity: 0; /* Maak deze onzichtbaar */
         }
 
-        input[type="text"], input[type="number"], select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-        /* Footer stijl */
-        footer {
-            margin-top: 30px;
-            text-align: center;
-            padding: 10px;
-            width: 100%;
-        }
-
-        footer a {
-            color: #4CAF50;
+        /* Link styles */
+        .nav a {
+            color: #007BFF;
             text-decoration: none;
-            margin: 0 10px;
+            padding: 10px 15px; /* Padding voor de klikbare ruimte */
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.3s ease;
+            white-space: nowrap; /* Zorg ervoor dat de tekst niet afbreekt */
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        /* Hover effect op links */
+        .nav a:hover {
+            color: #0056b3; /* Verander de linkkleur bij hover */
+            transform: scale(1.1); /* Vergroot iets bij hover */
         }
 
-        /* Footer powered by */
-        .powered-by {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #555;
+        /* 3D effect op nav bij hover */
+        .nav:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Schaduw effect voor diepte */
         }
 
-    </style>
+        /* Content styles */
+        .content {
+            padding: 60px; /* Zorg ervoor dat de content niet achter de navbar komt */
+        }
+
+
+/* Footer styling */
+footer {
+    background-color: #1c1c1e;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+footer h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+footer .container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+footer .footer-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Ensure responsiveness */
+}
+
+footer .footer-col {
+    flex: 1; /* Make each column flexible */
+    min-width: 200px; /* Minimum width for small screens */
+    margin: 1rem; /* Space between columns */
+}
+
+footer .footer-col-title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+footer .footer-col a {
+    color: white; /* Use white text for links */
+    text-decoration: none;
+    display: block; /* Links as block for better spacing */
+    margin-bottom: 0.5rem; /* Space between links */
+    transition: color 0.3s ease;
+}
+
+footer .footer-col a:hover {
+    color: #ccc; /* Lighten color on hover */
+}
+
+footer .footer-copyrights {
+    padding-top: 3rem;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center; /* Center copyright text */
+}
+
+footer .footer-copyrights p {
+    margin: 0;
+}
+
+footer .footer-copyrights p a {
+    margin-left: 0.5rem;
+    color: #ccc; /* Lighten color for links */
+}
+
+
+</style>
 </head>
 <body>
 
-    <h1>Coming soon</h1>
-    <img src="raflelargent.jpg" alt="Foto van Ambex logo">
+ <!-- Navigation Bar -->
+<div class="nav" id="navbar">
+  <a href="#">Home</a>
+  <a href="#about" class="button">About</a>
+  <a href="#services">Services</a>
+  <a href="#contact">Contact</a>
+</div>
 
-    <!-- Sectie voor modellen -->
-    <h2>Wij zijn op zoek naar modellen!</h2>
-    <p>Ben jij geïnteresseerd in het modelleren voor Rafle L'argent? Vul het aanmeldformulier in!</p>
+<!-- Toggle Button for Sidebar -->
+<button id="togglerBtn">☰</button>
+<p>this button is defect</p>
 
-    <!-- Aanmeldformulier -->
-    <h2>Aanmeldformulier</h2>
-    <form action="mailto:raflelargent@gmail.com" method="POST" enctype="text/plain">
-        <label for="name">Naam:</label>
-        <input type="text" id="name" name="name" required>
+<!-- Sidebar -->
+<aside id="sidenav">
+  <div class="sidenav-wrap">
+    <ul>
+      <li class="current"><a href="#">𝐇𝐨𝐦𝐞</a></li>
+      <li><a href="row">𝙋𝙤𝙧𝙩𝙤𝙛𝙡𝙞𝙤</a></li>
+      <li><a href="#">𝙋𝙤𝙧𝙩𝙤𝙛𝙡𝙞𝙤</a></li>
+      <li><a href="#">𝑪𝒐𝒏𝒕𝒂𝒄𝒕</a></li>
+    </ul>
+    <span id="closeBtn">x</span>
+  </div>
+</aside>
 
-        <label for="length">Lengte (in cm):</label>
-        <input type="number" id="length" name="length" required>
+   
+<!-- MAIN (Center website) -->
 
-        <label for="gender">Geslacht:</label>
-        <select id="gender" name="gender" required>
-            <option value="man">Man</option>
-            <option value="vrouw">Vrouw</option>
-            <option value="anders">Anders</option>
-        </select>
+  <div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAGUgddApPI/6ENsbtwerJaXDZxPBcngaQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
 
-        <label for="instagram">Instagram-pagina:</label>
-        <input type="text" id="instagram" name="instagram" placeholder="@gebruikersnaam">
+<h1>Rafle L'argent</h1 auto>
+<hr>
 
-        <input type="submit" value="Verzenden">
-    </form>
-    <!-- Footer -->
-    <footer>
-        <p>Volg ons op sociale media:</p>
-        <a href="https://www.instagram.com/raflelargentofficial?igsh=cXZweW05MjhoYTFy" target="_blank">Instagram</a> |
-        <a href="https://www.tiktok.com/@raflelargent?_t=8qZd9XgidVY&_r=1 target="_blank">TikTok</a>
-        <div class="powered-by">
-            Powered by <a href="https://www.ambex.nl" target="_blank">Ambex</a>
+
+<h2>Pre release</h2>
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+  <button class="btn" onclick="filterSelection('Wit')"> Wit</button>
+  <button class="btn" onclick="filterSelection('black')"> Zwart</button>
+  <button class="btn" onclick="filterSelection('Limited Edition')"> Limited Edition</button>
+</div>
+
+<!-- Portfolio Gallery Grid -->
+<div class="row">
+  <div class="column Wit">
+    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
+      <img src="KLaverW.png" alt="Mountains" style="width:100%">
+      <h4>𝑹𝒂𝒇𝒍𝒆 𝑳'𝒂𝒓𝒈𝒆𝒏𝒕</h4>
+      <p>𝑲𝒍𝒂𝒗𝒆𝒓 𝑬𝒎𝒃𝒍𝒆𝒎 𝑻-𝑺𝒉𝒊𝒓𝒕.(𝑾𝒉𝒊𝒕𝒆)</p>
+    </div>
+  </div>
+  <div class="column black">
+    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
+      <img src="KLaverB.png" alt="Lights" style="width:100%">
+      <h4>𝑹𝒂𝒇𝒍𝒆 𝑳'𝒂𝒓𝒈𝒆𝒏𝒕</h4>
+      <p>𝐊𝐥𝐚𝐯𝐞𝐫 𝐄𝐦𝐛𝐥𝐞𝐦 𝐓-𝐒𝐡𝐢𝐫𝐭.(𝐁𝐥𝐚𝐜𝐤)</p>
+    </div>
+  </div>
+  <div class="column black">
+    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
+      <img src="Graphic colos.png" alt="Nature" style="width:100%">
+      <h4>𝐏𝐫𝐢𝐬𝐦𝐚𝐭𝐢𝐜 𝐆𝐥𝐨𝐰 𝐓𝐞𝐞</h4>
+      <p>𝘿𝙚 *𝙋𝙧𝙞𝙨𝙢𝙖𝙩𝙞𝙘 𝙂𝙡𝙤𝙬 𝙏𝙚𝙚* 𝙞𝙨 𝙚𝙚𝙣 𝙯𝙬𝙖𝙧𝙩 𝙩-𝙨𝙝𝙞𝙧𝙩 𝙢𝙚𝙩 𝙚𝙚𝙣 𝙜𝙤𝙪𝙙𝙚𝙣 "𝙍" 𝙫𝙤𝙤𝙧𝙤𝙥 𝙚𝙣 𝙚𝙚𝙣 𝙤𝙥𝙫𝙖𝙡𝙡𝙚𝙣𝙙 𝙥𝙧𝙞𝙨𝙢𝙖𝙩𝙞𝙨𝙘𝙝 𝙤𝙣𝙩𝙬𝙚𝙧𝙥 𝙖𝙘𝙝𝙩𝙚𝙧𝙤𝙥. 𝙀𝙚𝙣 𝙙𝙮𝙣𝙖𝙢𝙞𝙨𝙘𝙝𝙚 𝙚𝙣 𝙨𝙩𝙞𝙟𝙡𝙫𝙤𝙡𝙡𝙚 𝙠𝙚𝙪𝙯𝙚!</p>
+    </div>
+  </div>
+  <div class="column Wit">
+    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
+      <img src="refective7.png" alt="Car" style="width:100%">
+      <h4>𝙍𝙚𝙛𝙡𝙚𝙘𝙩 7</h4>
+      <p> 𝐁𝐞𝐬𝐜𝐡𝐫𝐢𝐣𝐯𝐢𝐧𝐠: 𝐃𝐢𝐭 𝐯𝐞𝐫𝐰𝐢𝐣𝐬𝐭 𝐧𝐚𝐚𝐫 𝐝𝐞 𝐫𝐞𝐟𝐥𝐞𝐜𝐭𝐞𝐫𝐞𝐧𝐝𝐞 𝐧𝐮𝐦𝐦𝐞𝐫 7-𝐩𝐫𝐢𝐧𝐭 𝐨𝐩 𝐝𝐞 𝐚𝐜𝐡𝐭𝐞𝐫𝐤𝐚𝐧𝐭, 𝐰𝐚𝐭 𝐡𝐞𝐭 𝐬𝐡𝐢𝐫𝐭 𝐞𝐞𝐧 𝐨𝐩𝐯𝐚𝐥𝐥𝐞𝐧𝐝𝐞 𝐞𝐧 𝐮𝐧𝐢𝐞𝐤𝐞 𝐮𝐢𝐭𝐬𝐭𝐫𝐚𝐥𝐢𝐧𝐠 𝐠𝐞𝐞𝐟𝐭.</p>
+    </div>
+  </div>
+  <div class="column black">
+    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
+      <img src="Visionaire_red.png" alt="Car" style="width:100%">
+      <h4>𝑽𝒊𝒔𝒊𝒐𝒏𝒂𝒊𝒓𝒆(🆁🅴🅳)</h4>
+      <p> 𝘽𝙚𝙨𝙘𝙝𝙧𝙞𝙟𝙫𝙞𝙣𝙜: 𝘿𝙞𝙩 𝙨𝙝𝙞𝙧𝙩 𝙧𝙞𝙘𝙝𝙩 𝙯𝙞𝙘𝙝 𝙤𝙥 𝙝𝙚𝙩 𝙞𝙙𝙚𝙚 𝙫𝙖𝙣 ‘𝙙𝙚 𝙫𝙞𝙨𝙞𝙚 𝙫𝙖𝙨𝙩𝙝𝙤𝙪𝙙𝙚𝙣,’ 𝙢𝙚𝙩 𝙚𝙚𝙣 𝙜𝙚𝙙𝙪𝙧𝙛𝙙𝙚 𝙗𝙡𝙞𝙠 𝙚𝙣 𝙞𝙣𝙨𝙥𝙞𝙧𝙚𝙧𝙚𝙣𝙙𝙚 𝙩𝙚𝙠𝙨𝙩 𝙤𝙥 𝙙𝙚 𝙖𝙘𝙝𝙩𝙚𝙧𝙠𝙖𝙣𝙩.</p>
+    </div>
+  </div>
+  <div class="column Wit">
+    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
+      <img src="Visionaire_blue.png" alt="Car" style="width:100%">
+      <h4>𝑽𝒊𝒔𝒊𝒐𝒏𝒂𝒊𝒓𝒆(🅱🅻🆄🅴)</h4>
+      <p> 𝘽𝙚𝙨𝙘𝙝𝙧𝙞𝙟𝙫𝙞𝙣𝙜: 𝘿𝙞𝙩 𝙨𝙝𝙞𝙧𝙩 𝙧𝙞𝙘𝙝𝙩 𝙯𝙞𝙘𝙝 𝙤𝙥 𝙝𝙚𝙩 𝙞𝙙𝙚𝙚 𝙫𝙖𝙣 ‘𝙙𝙚 𝙫𝙞𝙨𝙞𝙚 𝙫𝙖𝙨𝙩𝙝𝙤𝙪𝙙𝙚𝙣,’ 𝙢𝙚𝙩 𝙚𝙚𝙣 𝙜𝙚𝙙𝙪𝙧𝙛𝙙𝙚 𝙗𝙡𝙞𝙠 𝙚𝙣 𝙞𝙣𝙨𝙥𝙞𝙧𝙚𝙧𝙚𝙣𝙙𝙚 𝙩𝙚𝙠𝙨𝙩 𝙤𝙥 𝙙𝙚 𝙖𝙘𝙝𝙩𝙚𝙧𝙠𝙖𝙣𝙩</p>
+    </div>
+  </div>
+
+  <div class="column black">
+    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
+      <img src="Rafle7blueW.png" alt="Car" style="width:100%">
+      <h4>𝐂𝐞𝐫𝐚𝐦𝐢𝐜 𝐒𝐭𝐞𝐩𝐬 𝐓𝐞𝐞</h4>
+      <p> 𝙕𝙬𝙖𝙧𝙩 𝙩-𝙨𝙝𝙞𝙧𝙩 𝙢𝙚𝙩 𝙨𝙪𝙗𝙩𝙞𝙚𝙡𝙚 𝙫𝙤𝙤𝙧𝙤𝙥𝙙𝙧𝙪𝙠 𝙚𝙣 𝙚𝙚𝙣 𝙠𝙚𝙧𝙖𝙢𝙞𝙨𝙘𝙝 𝙥𝙖𝙩𝙧𝙤𝙤𝙣 𝙤𝙥 𝙙𝙚 𝙖𝙘𝙝𝙩𝙚𝙧𝙠𝙖𝙣</p>
+    </div>
+  </div>
+  <div class="column Limited Edition">
+    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
+      <img src="Angels.png" alt="Car" style="width:100%">
+      <h4>𝐂𝐮𝐩𝐢𝐝'𝐬 𝐀𝐫𝐫𝐨𝐰 𝐓𝐞𝐞.</h4>
+      <p>𝐂𝐮𝐩𝐢𝐝'𝐬 𝐀𝐫𝐫𝐨𝐰 𝐓𝐞𝐞: 𝐙𝐰𝐚𝐫𝐭 𝐭-𝐬𝐡𝐢𝐫𝐭 𝐦𝐞𝐭 𝐞𝐞𝐧 𝐬𝐮𝐛𝐭𝐢𝐞𝐥𝐞 𝐯𝐨𝐨𝐫𝐨𝐩𝐝𝐫𝐮𝐤 𝐞𝐧 𝐞𝐞𝐧 𝐨𝐩𝐯𝐚𝐥𝐥𝐞𝐧𝐝𝐞 𝐩𝐫𝐢𝐧𝐭 𝐯𝐚𝐧 𝐛𝐥𝐚𝐮𝐰𝐞 𝐞𝐧𝐠𝐞𝐥𝐞𝐧 𝐨𝐩 𝐝𝐞 𝐚𝐜𝐡𝐭𝐞𝐫𝐤𝐚𝐧𝐭.</p>
         </div>
-    </footer>
-    
+  </div>
+  
 
-</body>
+<a href="#top" id="backToTop" class="back-to-top">
+  <img src="Website ds.png" alt="Logo" width="100px" height="100px">
+  <span class="hover-text">Back to top</span>
+</a>
+<fieldset>
+<div id="about" class="about">
+<div class="about">
+    <h1>Over Rafle L'argent</h1>
+    <p>𝘽𝙞𝙟 𝙍𝙖𝙛𝙡𝙚 𝙇'𝙖𝙧𝙜𝙚𝙣𝙩 𝙜𝙚𝙡𝙤𝙫𝙚𝙣 𝙬𝙚 𝙞𝙣 𝙙𝙚 𝙠𝙧𝙖𝙘𝙝𝙩 𝙫𝙖𝙣 𝙯𝙚𝙡𝙛𝙚𝙭𝙝𝙧𝙚𝙨𝙨𝙞𝙚. 𝙊𝙣𝙯𝙚 𝙠𝙡𝙚𝙙𝙞𝙣𝙜𝙡𝙞𝙟𝙣 𝙞𝙨 𝙤𝙣𝙩𝙬𝙤𝙧𝙥𝙚𝙣 𝙫𝙤𝙤𝙧 𝙟𝙤𝙣𝙜𝙚𝙧𝙚𝙣 𝙙𝙞𝙚 𝙝𝙪𝙣 𝙪𝙣𝙞𝙚𝙠𝙚 𝙨𝙩𝙞𝙟𝙡 𝙬𝙞𝙡𝙡𝙚𝙣 𝙩𝙤𝙣𝙚𝙣 𝙚𝙣 𝙚𝙚𝙣 𝙨𝙩𝙖𝙩𝙚𝙢𝙚𝙣𝙩 𝙬𝙞𝙡𝙡𝙚𝙣 𝙢𝙖𝙠𝙚𝙣. 𝙈𝙚𝙩 𝙚𝙚𝙣 𝙢𝙞𝙭 𝙫𝙖𝙣 𝙩𝙧𝙚𝙣𝙙𝙮 𝙤𝙣𝙩𝙬𝙚𝙧𝙥𝙚𝙣 𝙚𝙣 𝙘𝙤𝙢𝙛𝙤𝙧𝙩𝙖𝙗𝙡𝙚 𝙢𝙖𝙩𝙚𝙧𝙞𝙖𝙡𝙚𝙣, 𝙗𝙞𝙚𝙙𝙚𝙣 𝙬𝙚 𝙚𝙚𝙣 𝙘𝙤𝙡𝙡𝙚𝙘𝙩𝙞𝙚 𝙙𝙞𝙚 𝙥𝙚𝙧𝙛𝙚𝙘𝙩 𝙞𝙨 𝙫𝙤𝙤𝙧 𝙚𝙡𝙠𝙚 𝙜𝙚𝙡𝙚𝙜𝙚𝙣𝙝𝙚𝙞𝙙, 𝙫𝙖𝙣 𝙘𝙖𝙨𝙪𝙖𝙡 𝙪𝙞𝙩𝙟𝙚𝙨 𝙩𝙤𝙩 𝙨𝙥𝙚𝙘𝙞𝙖𝙡𝙚 𝙚𝙫𝙚𝙣𝙚𝙢𝙚𝙣𝙩𝙚𝙣. 𝙊𝙣𝙯𝙚 𝙛𝙞𝙡𝙤𝙨𝙤𝙛𝙞𝙚 𝙙𝙧𝙖𝙖𝙞𝙩 𝙤𝙢 𝙢𝙚𝙚𝙧 𝙙𝙖𝙣 𝙖𝙡𝙡𝙚𝙚𝙣 𝙢𝙤𝙙𝙚; 𝙝𝙚𝙩 𝙜𝙖𝙖𝙩 𝙤𝙢 𝙝𝙚𝙩 𝙫𝙞𝙚𝙧𝙚𝙣 𝙫𝙖𝙣 𝙬𝙞𝙚 𝙟𝙚 𝙗𝙚𝙣𝙩. 𝙒𝙚 𝙞𝙣𝙨𝙥𝙞𝙧𝙚𝙧𝙚𝙣 𝙤𝙣𝙯𝙚 𝙠𝙡𝙖𝙣𝙩𝙚𝙣 𝙤𝙢 𝙫𝙧𝙞𝙟 𝙩𝙚 𝙯𝙞𝙟𝙣 𝙞𝙣 𝙝𝙪𝙣 𝙠𝙚𝙪𝙯𝙚𝙨 𝙚𝙣 𝙤𝙢 𝙖𝙪𝙩𝙝𝙚𝙣𝙩𝙞𝙚𝙠 𝙩𝙚 𝙗𝙡𝙞𝙟𝙫𝙚𝙣 𝙞𝙣 𝙚𝙚𝙣 𝙬𝙚𝙧𝙚𝙡𝙙 𝙙𝙞𝙚 𝙫𝙖𝙖𝙠 𝙣𝙚𝙞𝙜𝙩 𝙣𝙖𝙖𝙧 𝙘𝙤𝙣𝙛𝙤𝙧𝙢𝙞𝙩𝙚𝙞𝙩. 𝘽𝙞𝙟 𝙍𝙖𝙛𝙡𝙚 𝙇'𝙖𝙧𝙜𝙚𝙣𝙩 𝙨𝙩𝙧𝙚𝙫𝙚𝙣 𝙬𝙚 𝙚𝙧𝙣𝙖𝙖𝙧 𝙤𝙢 𝙣𝙞𝙚𝙩 𝙖𝙡𝙡𝙚𝙚𝙣 𝙠𝙡𝙚𝙙𝙞𝙣𝙜 𝙩𝙚 𝙫𝙚𝙧𝙠𝙤𝙥𝙚𝙣, 𝙢𝙖𝙖𝙧 𝙤𝙤𝙠 𝙚𝙚𝙣 𝙘𝙤𝙢𝙢𝙪𝙣𝙞𝙩𝙮 𝙩𝙚 𝙘𝙧𝙚ë𝙧𝙚𝙣 𝙬𝙖𝙖𝙧 𝙘𝙧𝙚𝙖𝙩𝙞𝙫𝙞𝙩𝙚𝙞𝙩 𝙚𝙣 𝙞𝙣𝙙𝙞𝙫𝙞𝙙𝙪𝙖𝙡𝙞𝙩𝙚𝙞𝙩 𝙬𝙤𝙧𝙙𝙚𝙣 𝙜𝙚𝙬𝙖𝙖𝙙𝙚𝙚𝙧𝙙. 𝘿𝙧𝙖𝙖𝙜 𝙤𝙣𝙯𝙚 𝙠𝙡𝙚𝙙𝙞𝙣𝙜 𝙢𝙚𝙩 𝙩𝙧𝙤𝙩𝙨 𝙚𝙣 𝙡𝙖𝙣𝙙𝙙𝙞𝙜𝙪𝙞𝙣𝙚𝙣 𝙩𝙤𝙩 𝙙𝙚 𝙗𝙚𝙨𝙩 𝙫𝙤𝙤𝙧 𝙙𝙚 𝙗𝙞𝙟𝙙𝙚 𝙤𝙛𝙛𝙚𝙧𝙩𝙚 𝙢𝙖𝙧𝙜𝙞𝙣𝙚𝙧𝙚 𝙡𝙖𝙖𝙣𝙚𝙣 𝙨𝙩𝙧𝙖𝙡𝙚𝙨. 𝙑𝙖𝙡𝙙 𝙪𝙣𝙙𝙚𝙧𝙬𝙞𝙧𝙙 𝙗𝙞𝙟 𝙤𝙣𝙯𝙚 𝙟𝙤𝙣𝙜𝙚𝙧𝙚𝙣 𝙚𝙣 𝙗𝙤𝙖𝙩 𝙙𝙞𝙚 𝙢𝙤𝙩𝙚𝙡𝙚𝙣 𝙫𝙞𝙚𝙧𝙚𝙣. </p>
+</div>
+</fieldset>
+<fieldset>
+<div id="services" class="services">
+    <h1>Onze Services</h1>
+    <p>Bij Rafle L'argent bieden we custom design aan en de mogelijkheid om kleding te kopen. We helpen je graag bij het creëren van unieke ontwerpen die passen bij jouw stijl.</p>
+</div>
+</fieldset>
+<footer>
+  <div class="container">
+    <div class="footer-columns">
+      <div class="footer-col">
+        <div id="contact" class="contact">
+        <h4 class="footer-col-title">Contactinformatie</h4>
+        <p>Hoofdmail: <a href="mailto:raflelargent@gmail.com">raflelargent@gmail.com</a></p>
+        <a href="mailto:a.ambexnl@gmail.com">a.ambexnl@gmail.com</a>
+        <a href="mailto:ambex.NL@outlook.com">ambex.NL@outlook.com</a>
+        <a href="tel:+31234567890">+31 (0) 234 567 890</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Volg ons</h4>
+        <a href="https://www.instagram.com/raflelargentofficial/" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@raflelargent" target="_blank">TikTok</a>
+        <a href="https://www.snapchat.com/add/raflelargent" target="_blank">Snapchat</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Snelle links</h4>
+        <a href="#about" class="button">Over ons</a>
+        <a href="#services">Diensten</a>
+        
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Over Rafle L'argent</h4>
+        <p>Rafle L'argent is een kledingmerk dat zich richt op jongeren tussen de 14 en 23 jaar. Wij geloven in de kracht van mode als een middel voor zelfexpressie, met unieke en trendy ontwerpen die stijl en comfort combineren. Onze missie is om hoogwaardige kleding te bieden die niet alleen mooi is, maar ook duurzaam.</p>
+        <p>Onze slogan: "Hold the Vision" inspireert ons om onze doelen te blijven nastreven en onze klanten te motiveren om hetzelfde te doen.</p>
+      </div>
+    </div>
+    <div class="footer-partners">
+      <h4 class="footer-col-title">Partners</h4>
+      <p><a href="https://prismatikai.com" target="_blank">Prismatikai.com</a></p>
+      <p><a href="https://vivianasnailglam.nl/" target="_blank">Viviana's Nail Glam</a></p>
+    </div>
+    <div class="footer-copyrights">
+      <p>&copy; 2024 Rafle L'argent. Alle rechten voorbehouden. Powerd by <a href="https://ambex.nl/" target="_blank">Ambex</a><a href="#">Voorwaarden voor gebruik</a></p>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+<script>
+ // Filter functie voor de gallery
+filterSelection("all");
+
+function filterSelection(c) {
+    var x, i;
+    x = document.getElementsByClassName("column");
+    if (c === "all") c = "";
+    for (i = 0; i < x.length; i++) {
+        w3RemoveClass(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+    }
+}
+
+function w3AddClass(element, name) {
+    var arr1 = element.className.split(" ");
+    var arr2 = name.split(" ");
+    for (var i = 0; i < arr2.length; i++) {
+        if (arr1.indexOf(arr2[i]) === -1) {
+            element.className += " " + arr2[i];
+        }
+    }
+}
+
+function w3RemoveClass(element, name) {
+    var arr1 = element.className.split(" ");
+    var arr2 = name.split(" ");
+    for (var i = 0; i < arr2.length; i++) {
+        while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+        }
+    }
+    element.className = arr1.join(" ");
+}
+
+// Actieve klasse toevoegen aan geselecteerde filterknop
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        if (current.length > 0) {
+            current[0].className = current[0].className.replace(" active", "");
+        }
+        this.className += " active";
+    });
+}
+
+// "Back to Top"-knop functionaliteit
+document.getElementById('backToTop').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Scroll event voor tonen/verbergen van "Back to Top" knop
+window.addEventListener('scroll', function() {
+    const backToTop = document.getElementById('backToTop');
+    backToTop.style.opacity = window.scrollY > 100 ? '1' : '0';
+});
+
+  // Back to top button functionality
+  document.getElementById('backToTop').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Scroll event for showing/hiding back to top button
+  window.addEventListener('scroll', function() {
+      const backToTop = document.getElementById('backToTop');
+      backToTop.style.opacity = window.scrollY > 100 ? '1' : '0'; // Show or hide button
+  });
+
+  // Toggle function to open/close sidebar
+var togglerBtn = document.getElementById('togglerBtn');
+var closeBtn = document.getElementById('closeBtn');
+
+function toggleSidenav() {
+    const sidenav = document.getElementById("sidenav");
+    const contentMain = document.getElementById("content-main");
+    if (sidenav.style.width === "300px") {
+        sidenav.style.width = "0";
+        contentMain.style.marginRight = "0";
+        contentMain.style.backgroundColor = "#9db8d2"; 
+    } else {
+        sidenav.style.width = "300px";
+        contentMain.style.marginRight = "300px";
+        contentMain.style.backgroundColor = "rgba(0,0,0,0.8)"; 
+    }
+}
+
+// Event listener for the toggle button
+togglerBtn.addEventListener("click", toggleSidenav);
+closeBtn.addEventListener("click", function() {
+    document.getElementById("sidenav").style.width = "0";
+    document.getElementById("content-main").style.marginRight = "0";
+});
+
+// Scroll event for hiding/showing the navigation bar
+let lastScrollPosition = 0;
+const navbar = document.getElementById('navbar');
+const backToTop = document.getElementById('backToTop');
+
+document.addEventListener('scroll', function() {
+    // Navigatiebalk verbergen of tonen
+    if (window.scrollY > lastScrollPosition) {
+        navbar.classList.add('hidden');
+    } else {
+        navbar.classList.remove('hidden');
+    }
+    lastScrollPosition = window.scrollY;
+
+    // Back to top knop tonen of verbergen
+    backToTop.style.opacity = window.scrollY > 100 ? '1' : '0'; // Show or hide button
+}, { passive: true });
+
+
+</script>
+
+  
+
 </html>
+</body>
