@@ -517,8 +517,28 @@ footer .footer-copyrights p a {
     color: #ccc; /* Lighten color for links */
 }
 
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
 
+
+    a {
+        display: inline; /* Zorg ervoor dat de links naast elkaar staan */
+        margin: 0 5px; /* Ruimte tussen links */
+        color: #007bff; /* Standaard kleur voor links */
+        text-decoration: none; /* Geen onderlijning */
+        transition: color 0.3s; /* Voor een soepele overgang van kleur */
+    }
+
+    a:hover {
+        text-decoration: underline; /* Onderstreping bij hover */
+        color: #0056b3; /* Donkerdere kleur bij hover */
+    }
 </style>
+
+
 </head>
 <body>
 
@@ -561,74 +581,144 @@ footer .footer-copyrights p a {
 <h1>Rafle L'argent</h1 auto>
 <hr>
 
+<h2 style="font-size: 20px; font-weight: bold; color: #333; margin-bottom: 5px;">Pre Release</h2>
+<p style="font-size: 14px; color: #555; line-height: 1.5; margin: 0;">
+    Alle shirts zullen beschikbaar zijn na zondag. Voor degenen die eerder hebben besteld stuur ons een DM op : 
+    <a href="https://www.instagram.com/raflelargentofficial/" target="_blank" style="color: #003366; text-decoration: none; transition: color 0.3s;">Instagram</a> of 
+    <a href="https://www.snapchat.com/add/raflelargent" target="_blank" style="color: #003366; text-decoration: none; transition: color 0.3s;">Snapchat</a> 
+    om te zien hoe ver je bestelling is!
+</p>
 
-<h2>Pre release</h2>
+
+
+<p>Deze knop (Sorteer op Prijs) is defect</p>
 <div id="myBtnContainer">
   <button class="btn active" onclick="filterSelection('all')"> Show all</button>
   <button class="btn" onclick="filterSelection('Wit')"> Wit</button>
   <button class="btn" onclick="filterSelection('black')"> Zwart</button>
   <button class="btn" onclick="filterSelection('Limited Edition')"> Limited Edition</button>
+  <button class="btn" onclick="sortByPrice()"> Sorteer op prijs</button> <!-- Voeg sorteerknop toe -->
 </div>
 
 <!-- Portfolio Gallery Grid -->
 <div class="row">
   <div class="column Wit">
+    <div class="gallery-item">
+        <img src="KLaverW.png" alt="T-shirt" style="width:100%">
+        <h4>𝑹𝒂𝒇𝒍𝒆 𝑳'𝒂𝒓𝒈𝒆𝒏𝒕</h4>
+        <p>𝑲𝒍𝒂𝒗𝒆𝒓 𝑬𝒎𝒃𝒍𝒆𝒎 𝑻-𝑺𝒉𝒊𝒓𝒕.(𝑾𝒉𝒊𝒕𝒆)</p>
+        <p>𝑬𝒆𝒏 𝒘𝒊𝒕𝒕𝒆 𝑻-𝒔𝒉𝒊𝒓𝒕 𝒎𝒆𝒕 "𝑹𝒂𝒇𝒍𝒆 𝑳'𝒂𝒓𝒈𝒆𝒏𝒕" 𝒗𝒐𝒐𝒓𝒐𝒑 𝒊𝒏 𝒆𝒆𝒏 𝒆𝒍𝒆𝒈𝒂𝒏𝒕𝒆 𝒔𝒕𝒊𝒋𝒍 𝒆𝒏 𝒐𝒑 𝒅𝒆 𝒂𝒄𝒉𝒕𝒆𝒓𝒌𝒂𝒏𝒕 𝒅𝒆 𝒕𝒆𝒌𝒔𝒕 "𝑵𝑶 𝑳𝑼𝑪𝑲, 𝑱𝑼𝑺𝑻 𝒄𝒐𝒏𝒔𝒊𝒔𝒕𝒆𝒏𝒄𝒚" 𝒎𝒆𝒕 𝒆𝒆𝒏 𝒈𝒓𝒐𝒆𝒏𝒆 𝒌𝒍𝒂𝒗𝒆𝒓. 𝑬𝒆𝒏 𝒐𝒑𝒗𝒂𝒍𝒍𝒆𝒏𝒅𝒆 𝒆𝒏 𝒎𝒐𝒕𝒊𝒗𝒆𝒓𝒆𝒏𝒅𝒆 𝒌𝒆𝒖𝒛𝒆!</p>
+        <p class="price">€35,25</p>
+    </div>
+</div>
+
+  <div class="column black">
     <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
-      <img src="KLaverW.png" alt="Mountains" style="width:100%">
+      <img src="KLaverB.png" alt="T-shirt" style="width:100%">
       <h4>𝑹𝒂𝒇𝒍𝒆 𝑳'𝒂𝒓𝒈𝒆𝒏𝒕</h4>
-      <p>𝑲𝒍𝒂𝒗𝒆𝒓 𝑬𝒎𝒃𝒍𝒆𝒎 𝑻-𝑺𝒉𝒊𝒓𝒕.(𝑾𝒉𝒊𝒕𝒆)</p>
+        <p>𝑲𝒍𝒂𝒗𝒆𝒓 𝑬𝒎𝒃𝒍𝒆𝒎 𝑻-𝑺𝒉𝒊𝒓𝒕.(𝑾𝒉𝒊𝒕𝒆)</p>
+        <p>𝑬𝒆𝒏 𝒘𝒊𝒕𝒕𝒆 𝑻-𝒔𝒉𝒊𝒓𝒕 𝒎𝒆𝒕 "𝑹𝒂𝒇𝒍𝒆 𝑳'𝒂𝒓𝒈𝒆𝒏𝒕" 𝒗𝒐𝒐𝒓𝒐𝒑 𝒊𝒏 𝒆𝒆𝒏 𝒆𝒍𝒆𝒈𝒂𝒏𝒕𝒆 𝒔𝒕𝒊𝒋𝒍 𝒆𝒏 𝒐𝒑 𝒅𝒆 𝒂𝒄𝒉𝒕𝒆𝒓𝒌𝒂𝒏𝒕 𝒅𝒆 𝒕𝒆𝒌𝒔𝒕 "𝑵𝑶 𝑳𝑼𝑪𝑲, 𝑱𝑼𝑺𝑻 𝒄𝒐𝒏𝒔𝒊𝒔𝒕𝒆𝒏𝒄𝒚" 𝒎𝒆𝒕 𝒆𝒆𝒏 𝒈𝒓𝒐𝒆𝒏𝒆 𝒌𝒍𝒂𝒗𝒆𝒓. 𝑬𝒆𝒏 𝒐𝒑𝒗𝒂𝒍𝒍𝒆𝒏𝒅𝒆 𝒆𝒏 𝒎𝒐𝒕𝒊𝒗𝒆𝒓𝒆𝒏𝒅𝒆 𝒌𝒆𝒖𝒛𝒆!</p>
+      <p class="price">€35,25</p>
     </div>
   </div>
   <div class="column black">
     <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
-      <img src="KLaverB.png" alt="Lights" style="width:100%">
-      <h4>𝑹𝒂𝒇𝒍𝒆 𝑳'𝒂𝒓𝒈𝒆𝒏𝒕</h4>
-      <p>𝐊𝐥𝐚𝐯𝐞𝐫 𝐄𝐦𝐛𝐥𝐞𝐦 𝐓-𝐒𝐡𝐢𝐫𝐭.(𝐁𝐥𝐚𝐜𝐤)</p>
-    </div>
-  </div>
-  <div class="column black">
-    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
-      <img src="Graphic colos.png" alt="Nature" style="width:100%">
+      <img src="3DW.png" alt="T-shirt" style="width:100%">
       <h4>𝐏𝐫𝐢𝐬𝐦𝐚𝐭𝐢𝐜 𝐆𝐥𝐨𝐰 𝐓𝐞𝐞</h4>
       <p>𝘿𝙚 *𝙋𝙧𝙞𝙨𝙢𝙖𝙩𝙞𝙘 𝙂𝙡𝙤𝙬 𝙏𝙚𝙚* 𝙞𝙨 𝙚𝙚𝙣 𝙯𝙬𝙖𝙧𝙩 𝙩-𝙨𝙝𝙞𝙧𝙩 𝙢𝙚𝙩 𝙚𝙚𝙣 𝙜𝙤𝙪𝙙𝙚𝙣 "𝙍" 𝙫𝙤𝙤𝙧𝙤𝙥 𝙚𝙣 𝙚𝙚𝙣 𝙤𝙥𝙫𝙖𝙡𝙡𝙚𝙣𝙙 𝙥𝙧𝙞𝙨𝙢𝙖𝙩𝙞𝙨𝙘𝙝 𝙤𝙣𝙩𝙬𝙚𝙧𝙥 𝙖𝙘𝙝𝙩𝙚𝙧𝙤𝙥. 𝙀𝙚𝙣 𝙙𝙮𝙣𝙖𝙢𝙞𝙨𝙘𝙝𝙚 𝙚𝙣 𝙨𝙩𝙞𝙟𝙡𝙫𝙤𝙡𝙡𝙚 𝙠𝙚𝙪𝙯𝙚!</p>
-    </div>
-  </div>
-  <div class="column Wit">
-    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
-      <img src="refective7.png" alt="Car" style="width:100%">
-      <h4>𝙍𝙚𝙛𝙡𝙚𝙘𝙩 7</h4>
-      <p> 𝐁𝐞𝐬𝐜𝐡𝐫𝐢𝐣𝐯𝐢𝐧𝐠: 𝐃𝐢𝐭 𝐯𝐞𝐫𝐰𝐢𝐣𝐬𝐭 𝐧𝐚𝐚𝐫 𝐝𝐞 𝐫𝐞𝐟𝐥𝐞𝐜𝐭𝐞𝐫𝐞𝐧𝐝𝐞 𝐧𝐮𝐦𝐦𝐞𝐫 7-𝐩𝐫𝐢𝐧𝐭 𝐨𝐩 𝐝𝐞 𝐚𝐜𝐡𝐭𝐞𝐫𝐤𝐚𝐧𝐭, 𝐰𝐚𝐭 𝐡𝐞𝐭 𝐬𝐡𝐢𝐫𝐭 𝐞𝐞𝐧 𝐨𝐩𝐯𝐚𝐥𝐥𝐞𝐧𝐝𝐞 𝐞𝐧 𝐮𝐧𝐢𝐞𝐤𝐞 𝐮𝐢𝐭𝐬𝐭𝐫𝐚𝐥𝐢𝐧𝐠 𝐠𝐞𝐞𝐟𝐭.</p>
+       <p class="price">€31,15</p>
     </div>
   </div>
   <div class="column black">
     <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
-      <img src="Visionaire_red.png" alt="Car" style="width:100%">
-      <h4>𝑽𝒊𝒔𝒊𝒐𝒏𝒂𝒊𝒓𝒆(🆁🅴🅳)</h4>
-      <p> 𝘽𝙚𝙨𝙘𝙝𝙧𝙞𝙟𝙫𝙞𝙣𝙜: 𝘿𝙞𝙩 𝙨𝙝𝙞𝙧𝙩 𝙧𝙞𝙘𝙝𝙩 𝙯𝙞𝙘𝙝 𝙤𝙥 𝙝𝙚𝙩 𝙞𝙙𝙚𝙚 𝙫𝙖𝙣 ‘𝙙𝙚 𝙫𝙞𝙨𝙞𝙚 𝙫𝙖𝙨𝙩𝙝𝙤𝙪𝙙𝙚𝙣,’ 𝙢𝙚𝙩 𝙚𝙚𝙣 𝙜𝙚𝙙𝙪𝙧𝙛𝙙𝙚 𝙗𝙡𝙞𝙠 𝙚𝙣 𝙞𝙣𝙨𝙥𝙞𝙧𝙚𝙧𝙚𝙣𝙙𝙚 𝙩𝙚𝙠𝙨𝙩 𝙤𝙥 𝙙𝙚 𝙖𝙘𝙝𝙩𝙚𝙧𝙠𝙖𝙣𝙩.</p>
+      <img src="3D GraphicsW.png" alt="Stylisch T-shirt" style="width:100%">
+      <h4>𝐏𝐫𝐢𝐬𝐦𝐚𝐭𝐢𝐜 𝐆𝐥𝐨𝐰 𝐓𝐞𝐞</h4>
+      <p>𝘿𝙚 *𝙋𝙧𝙞𝙨𝙢𝙖𝙩𝙞𝙘 𝙂𝙡𝙤𝙬 𝙏𝙚𝙚* 𝙞𝙨 𝙚𝙚𝙣 𝙯𝙬𝙖𝙧𝙩 𝙩-𝙨𝙝𝙞𝙧𝙩 𝙢𝙚𝙩 𝙚𝙚𝙣 𝙜𝙤𝙪𝙙𝙚𝙣 "𝙍" 𝙫𝙤𝙤𝙧𝙤𝙥 𝙚𝙣 𝙚𝙚𝙣 𝙤𝙥𝙫𝙖𝙡𝙡𝙚𝙣𝙙 𝙥𝙧𝙞𝙨𝙢𝙖𝙩𝙞𝙨𝙘𝙝 𝙤𝙣𝙩𝙬𝙚𝙧𝙥 𝙖𝙘𝙝𝙩𝙚𝙧𝙤𝙥. 𝙀𝙚𝙣 𝙙𝙮𝙣𝙖𝙢𝙞𝙨𝙘𝙝𝙚 𝙚𝙣 𝙨𝙩𝙞𝙟𝙡𝙫𝙤𝙡𝙡𝙚 𝙠𝙚𝙪𝙯𝙚!</p>
+       <p class="price">€31,15</p>
     </div>
   </div>
   <div class="column Wit">
     <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
-      <img src="Visionaire_blue.png" alt="Car" style="width:100%">
-      <h4>𝑽𝒊𝒔𝒊𝒐𝒏𝒂𝒊𝒓𝒆(🅱🅻🆄🅴)</h4>
+      <img src="Reflective7.png" alt="Stylisch T-shirt" style="width:100%">
+      <h4>𝙍𝙚𝙛𝙡𝙚𝙘𝙩 7</h4>
+      <p> 𝐁𝐞𝐬𝐜𝐡𝐫𝐢𝐣𝐯𝐢𝐧𝐠: 𝐃𝐢𝐭 𝐯𝐞𝐫𝐰𝐢𝐣𝐬𝐭 𝐧𝐚𝐚𝐫 𝐝𝐞 𝐫𝐞𝐟𝐥𝐞𝐜𝐭𝐞𝐫𝐞𝐧𝐝𝐞 𝐧𝐮𝐦𝐦𝐞𝐫 7-𝐩𝐫𝐢𝐧𝐭 𝐨𝐩 𝐝𝐞 𝐚𝐜𝐡𝐭𝐞𝐫𝐤𝐚𝐧𝐭, 𝐰𝐚𝐭 𝐡𝐞𝐭 𝐬𝐡𝐢𝐫𝐭 𝐞𝐞𝐧 𝐨𝐩𝐯𝐚𝐥𝐥𝐞𝐧𝐝𝐞 𝐞𝐧 𝐮𝐧𝐢𝐞𝐤𝐞 𝐮𝐢𝐭𝐬𝐭𝐫𝐚𝐥𝐢𝐧𝐠 𝐠𝐞𝐞𝐟𝐭.</p>
+      <p class="price">€29,50</p>
+    </div>
+  </div>
+  <div class="column Wit">
+    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
+      <img src="reflectiveZ 7.png" alt="Stylisch T-shirt" style="width:100%">
+      <h4>𝙍𝙚𝙛𝙡𝙚𝙘𝙩 7</h4>
+      <p> 𝐁𝐞𝐬𝐜𝐡𝐫𝐢𝐣𝐯𝐢𝐧𝐠: 𝐃𝐢𝐭 𝐯𝐞𝐫𝐰𝐢𝐣𝐬𝐭 𝐧𝐚𝐚𝐫 𝐝𝐞 𝐫𝐞𝐟𝐥𝐞𝐜𝐭𝐞𝐫𝐞𝐧𝐝𝐞 𝐧𝐮𝐦𝐦𝐞𝐫 7-𝐩𝐫𝐢𝐧𝐭 𝐨𝐩 𝐝𝐞 𝐚𝐜𝐡𝐭𝐞𝐫𝐤𝐚𝐧𝐭, 𝐰𝐚𝐭 𝐡𝐞𝐭 𝐬𝐡𝐢𝐫𝐭 𝐞𝐞𝐧 𝐨𝐩𝐯𝐚𝐥𝐥𝐞𝐧𝐝𝐞 𝐞𝐧 𝐮𝐧𝐢𝐞𝐤𝐞 𝐮𝐢𝐭𝐬𝐭𝐫𝐚𝐥𝐢𝐧𝐠 𝐠𝐞𝐞𝐟𝐭.</p>
+      <p class="price">€29,50</p>
+    </div>
+  </div>
+  <div class="column black">
+    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
+      <img src="VisionaireRed.png" alt="Stylisch T-shirt" style="width:100%">
+      <h4>𝑽𝒊𝒔𝒊𝒐𝒏𝒂𝒊𝒓𝒆 (𝐑𝐄𝐃)</h4>
+      <p> 𝘽𝙚𝙨𝙘𝙝𝙧𝙞𝙟𝙫𝙞𝙣𝙜: 𝘿𝙞𝙩 𝙨𝙝𝙞𝙧𝙩 𝙧𝙞𝙘𝙝𝙩 𝙯𝙞𝙘𝙝 𝙤𝙥 𝙝𝙚𝙩 𝙞𝙙𝙚𝙚 𝙫𝙖𝙣 ‘𝙙𝙚 𝙫𝙞𝙨𝙞𝙚 𝙫𝙖𝙨𝙩𝙝𝙤𝙪𝙙𝙚𝙣,’ 𝙢𝙚𝙩 𝙚𝙚𝙣 𝙜𝙚𝙙𝙪𝙧𝙛𝙙𝙚 𝙗𝙡𝙞𝙠 𝙚𝙣 𝙞𝙣𝙨𝙥𝙞𝙧𝙚𝙧𝙚𝙣𝙙𝙚 𝙩𝙚𝙠𝙨𝙩 𝙤𝙥 𝙙𝙚 𝙖𝙘𝙝𝙩𝙚𝙧𝙠𝙖𝙣𝙩.</p>
+       <p class="price">€31,15</p>
+    </div>
+  </div>
+  <div class="column Wit">
+    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
+      <img src="VisionaireB.png" alt="Stylisch T-shirt" style="width:100%">
+      <h4>𝑽𝒊𝒔𝒊𝒐𝒏𝒂𝒊𝒓𝒆 (𝐁𝐥𝐮𝐞)</h4>
       <p> 𝘽𝙚𝙨𝙘𝙝𝙧𝙞𝙟𝙫𝙞𝙣𝙜: 𝘿𝙞𝙩 𝙨𝙝𝙞𝙧𝙩 𝙧𝙞𝙘𝙝𝙩 𝙯𝙞𝙘𝙝 𝙤𝙥 𝙝𝙚𝙩 𝙞𝙙𝙚𝙚 𝙫𝙖𝙣 ‘𝙙𝙚 𝙫𝙞𝙨𝙞𝙚 𝙫𝙖𝙨𝙩𝙝𝙤𝙪𝙙𝙚𝙣,’ 𝙢𝙚𝙩 𝙚𝙚𝙣 𝙜𝙚𝙙𝙪𝙧𝙛𝙙𝙚 𝙗𝙡𝙞𝙠 𝙚𝙣 𝙞𝙣𝙨𝙥𝙞𝙧𝙚𝙧𝙚𝙣𝙙𝙚 𝙩𝙚𝙠𝙨𝙩 𝙤𝙥 𝙙𝙚 𝙖𝙘𝙝𝙩𝙚𝙧𝙠𝙖𝙣𝙩</p>
+       <p class="price">€31,15</p>
     </div>
   </div>
 
   <div class="column black">
     <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
-      <img src="Rafle7blueW.png" alt="Car" style="width:100%">
+      <img src="Rafle7blueW.png" alt="Stylisch T-shirt" style="width:100%">
       <h4>𝐂𝐞𝐫𝐚𝐦𝐢𝐜 𝐒𝐭𝐞𝐩𝐬 𝐓𝐞𝐞</h4>
       <p> 𝙕𝙬𝙖𝙧𝙩 𝙩-𝙨𝙝𝙞𝙧𝙩 𝙢𝙚𝙩 𝙨𝙪𝙗𝙩𝙞𝙚𝙡𝙚 𝙫𝙤𝙤𝙧𝙤𝙥𝙙𝙧𝙪𝙠 𝙚𝙣 𝙚𝙚𝙣 𝙠𝙚𝙧𝙖𝙢𝙞𝙨𝙘𝙝 𝙥𝙖𝙩𝙧𝙤𝙤𝙣 𝙤𝙥 𝙙𝙚 𝙖𝙘𝙝𝙩𝙚𝙧𝙠𝙖𝙣</p>
+       <p class="price">€31,15</p>
     </div>
   </div>
   <div class="column Limited Edition">
     <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
-      <img src="Angels.png" alt="Car" style="width:100%">
+      <img src="AngelsW.png" alt="Stylisch T-shirt" style="width:100%">
       <h4>𝐂𝐮𝐩𝐢𝐝'𝐬 𝐀𝐫𝐫𝐨𝐰 𝐓𝐞𝐞.</h4>
       <p>𝐂𝐮𝐩𝐢𝐝'𝐬 𝐀𝐫𝐫𝐨𝐰 𝐓𝐞𝐞: 𝐙𝐰𝐚𝐫𝐭 𝐭-𝐬𝐡𝐢𝐫𝐭 𝐦𝐞𝐭 𝐞𝐞𝐧 𝐬𝐮𝐛𝐭𝐢𝐞𝐥𝐞 𝐯𝐨𝐨𝐫𝐨𝐩𝐝𝐫𝐮𝐤 𝐞𝐧 𝐞𝐞𝐧 𝐨𝐩𝐯𝐚𝐥𝐥𝐞𝐧𝐝𝐞 𝐩𝐫𝐢𝐧𝐭 𝐯𝐚𝐧 𝐛𝐥𝐚𝐮𝐰𝐞 𝐞𝐧𝐠𝐞𝐥𝐞𝐧 𝐨𝐩 𝐝𝐞 𝐚𝐜𝐡𝐭𝐞𝐫𝐤𝐚𝐧𝐭.</p>
+      <p class="price">€27,25</p>
         </div>
   </div>
+  <div class="column Limited Edition">
+    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
+      <img src="VW.png" alt="Stylisch T-shirt" style="width:100%">
+      <h4>𝑬𝒔𝒄𝒂𝒑𝒆 𝑬𝒂𝒈𝒍𝒆.</h4>
+      <p>𝑬𝒔𝒄𝒂𝒑𝒆 𝑬𝒂𝒈𝒍𝒆: 𝐙𝐰𝐚𝐫𝐭 𝐭-𝐬𝐡𝐢𝐫𝐭 𝐦𝐞𝐭 𝐞𝐞𝐧 𝐬𝐮𝐛𝐭𝐢𝐞𝐥𝐞 𝐯𝐨𝐨𝐫𝐨𝐩𝐝𝐫𝐮𝐤 𝐞𝐧 𝐞𝐞𝐧 𝐨𝐩𝐯𝐚𝐥𝐥𝐞𝐧𝐝𝐞 𝐩𝐫𝐢𝐧𝐭 𝐯𝐚𝐧 𝐛𝐥𝐚𝐮𝐰𝐞 𝐞𝐧𝐠𝐞𝐥𝐞𝐧 𝐨𝐩 𝐝𝐞 𝐚𝐜𝐡𝐭𝐞𝐫𝐤𝐚𝐧𝐭.</p>
+      <p class="price">€27,25</p>
+        </div>
+  </div>
+  <div class="column Limited Edition">
+    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
+      <img src="VZ.png" alt="Stylisch T-shirt" style="width:100%">
+      <h4>𝑬𝒔𝒄𝒂𝒑𝒆 𝑬𝒂𝒈𝒍𝒆.</h4>
+      <p>𝑬𝒔𝒄𝒂𝒑𝒆 𝑬𝒂𝒈𝒍𝒆: 𝐙𝐰𝐚𝐫𝐭 𝐭-𝐬𝐡𝐢𝐫𝐭 𝐦𝐞𝐭 𝐞𝐞𝐧 𝐬𝐮𝐛𝐭𝐢𝐞𝐥𝐞 𝐯𝐨𝐨𝐫𝐨𝐩𝐝𝐫𝐮𝐤 𝐞𝐧 𝐞𝐞𝐧 𝐨𝐩𝐯𝐚𝐥𝐥𝐞𝐧𝐝𝐞 𝐩𝐫𝐢𝐧𝐭 𝐯𝐚𝐧 𝐛𝐥𝐚𝐮𝐰𝐞 𝐞𝐧𝐠𝐞𝐥𝐞𝐧 𝐨𝐩 𝐝𝐞 𝐚𝐜𝐡𝐭𝐞𝐫𝐤𝐚𝐧𝐭.</p>
+      <p class="price">€27,25</p>
+        </div>
+  </div>
+  <div class="column black">
+    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
+      <img src="B.I.G.png" alt="Stylisch T-shirt" style="width:100%">
+      <h4>𝙏𝙝𝙚 𝘼𝙧𝙩 𝙤𝙛 𝙩𝙝𝙚 𝙃𝙪𝙨𝙩𝙡𝙚 𝙀𝙙𝙞𝙩𝙞𝙤𝙣</h4>
+      <p> 𝘿𝙞𝙩 𝙬𝙞𝙩𝙩𝙚 𝙏-𝙨𝙝𝙞𝙧𝙩 𝙞𝙨 𝙚𝙚𝙣 𝙤𝙙𝙚 𝙖𝙖𝙣 𝙙𝙤𝙤𝙧𝙯𝙚𝙩𝙩𝙞𝙣𝙜𝙨𝙫𝙚𝙧𝙢𝙤𝙜𝙚𝙣 𝙚𝙣 𝙖𝙢𝙗𝙞𝙩𝙞𝙚, 𝙢𝙚𝙩 𝙚𝙚𝙣 𝙢𝙞𝙣𝙞𝙢𝙖𝙡𝙞𝙨𝙩𝙞𝙨𝙘𝙝 𝙤𝙤𝙜𝙡𝙤𝙜𝙤 𝙫𝙤𝙤𝙧𝙤𝙥 𝙚𝙣 𝙚𝙚𝙣 𝙞𝙘𝙤𝙣𝙞𝙨𝙘𝙝 𝙥𝙤𝙧𝙩𝙧𝙚𝙩 𝙖𝙘𝙝𝙩𝙚𝙧𝙤𝙥. 𝙈𝙚𝙩 𝙙𝙚 𝙩𝙚𝙠𝙨𝙩 "𝙈𝙤' 𝙈𝙤𝙣𝙚𝙮, 𝙈𝙤' 𝙋𝙧𝙤𝙗𝙡𝙚𝙢𝙨" 𝙚𝙣 "𝙏𝙝𝙚 𝘼𝙧𝙩 𝙤𝙛 𝙩𝙝𝙚 𝙃𝙪𝙨𝙩𝙡𝙚" 𝙨𝙩𝙧𝙖𝙖𝙡𝙩 𝙝𝙚𝙩 𝙙𝙚 𝙚𝙨𝙨𝙚𝙣𝙩𝙞𝙚 𝙫𝙖𝙣 𝙙𝙚 𝙝𝙪𝙨𝙩𝙡𝙚-𝙘𝙪𝙡𝙩𝙪𝙪𝙧 𝙪𝙞𝙩.</p>
+      <p class="price">€31,00</p>
+    </div>
+  </div>
+  <div class="column black">
+    <div class="gallery-item"> <!-- Gebruik gallery-item hier -->
+      <img src="007W.png" alt="Stylisch T-shirt" style="width:100%">
+      <h4>007 𝗦𝘁𝗮𝘁𝗲𝗺𝗲𝗻𝘁 𝗧𝗲𝗲</h4>
+      <p> 𝐃𝐢𝐭 𝐢𝐬 𝐞𝐞𝐧 𝐦𝐢𝐧𝐢𝐦𝐚𝐥𝐢𝐬𝐭𝐢𝐬𝐜𝐡 𝐰𝐢𝐭 𝐓-𝐬𝐡𝐢𝐫𝐭 𝐨𝐧𝐭𝐰𝐞𝐫𝐩 𝐯𝐚𝐧 𝐡𝐞𝐭 𝐦𝐞𝐫𝐤 *𝐑𝐚𝐟𝐥𝐞 𝐥'𝐀𝐫𝐠𝐞𝐧𝐭*. 𝐎𝐩 𝐝𝐞 𝐯𝐨𝐨𝐫𝐤𝐚𝐧𝐭 𝐬𝐭𝐚𝐚𝐭 𝐞𝐞𝐧 𝐤𝐥𝐞𝐢𝐧𝐞 𝐳𝐰𝐚𝐫𝐭𝐞 "𝐑" 𝐨𝐩 𝐝𝐞 𝐛𝐨𝐫𝐬𝐭. 𝐎𝐩 𝐝𝐞 𝐚𝐜𝐡𝐭𝐞𝐫𝐤𝐚𝐧𝐭 𝐬𝐭𝐚𝐚𝐭 𝐢𝐧 𝐡𝐞𝐭 𝐠𝐫𝐨𝐨𝐭 "007" 𝐦𝐞𝐭 𝐝𝐞 𝐭𝐞𝐤𝐬𝐭 *"𝐑𝐞𝐠𝐫𝐞𝐭 𝐢𝐬 𝐮𝐧𝐩𝐫𝐨𝐟𝐞𝐬𝐬𝐢𝐨𝐧𝐚𝐥."* 𝐝𝐚𝐚𝐫𝐨𝐧𝐝𝐞𝐫, 𝐞𝐧 𝐝𝐞 𝐦𝐞𝐫𝐤𝐧𝐚𝐚𝐦 *𝐑𝐚𝐟𝐥𝐞 𝐥'𝐀𝐫𝐠𝐞𝐧𝐭* 𝐢𝐧 𝐞𝐞𝐧 𝐬𝐮𝐛𝐭𝐢𝐞𝐥𝐞 𝐬𝐭𝐢𝐣𝐥.</p>
+      <p class="price">€22,00</p>
+    </div>
+  </div>
+
   
 
 <a href="#top" id="backToTop" class="back-to-top">
@@ -689,126 +779,124 @@ footer .footer-copyrights p a {
 </footer>
 
 
-
-
-
 <script>
- // Filter functie voor de gallery
-filterSelection("all");
-
-function filterSelection(c) {
-    var x, i;
-    x = document.getElementsByClassName("column");
-    if (c === "all") c = "";
-    for (i = 0; i < x.length; i++) {
-        w3RemoveClass(x[i], "show");
-        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-    }
-}
-
-function w3AddClass(element, name) {
-    var arr1 = element.className.split(" ");
-    var arr2 = name.split(" ");
-    for (var i = 0; i < arr2.length; i++) {
-        if (arr1.indexOf(arr2[i]) === -1) {
-            element.className += " " + arr2[i];
-        }
-    }
-}
-
-function w3RemoveClass(element, name) {
-    var arr1 = element.className.split(" ");
-    var arr2 = name.split(" ");
-    for (var i = 0; i < arr2.length; i++) {
-        while (arr1.indexOf(arr2[i]) > -1) {
-            arr1.splice(arr1.indexOf(arr2[i]), 1);
-        }
-    }
-    element.className = arr1.join(" ");
-}
-
-// Actieve klasse toevoegen aan geselecteerde filterknop
-var btnContainer = document.getElementById("myBtnContainer");
-var btns = btnContainer.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function() {
-        var current = document.getElementsByClassName("active");
-        if (current.length > 0) {
-            current[0].className = current[0].className.replace(" active", "");
-        }
-        this.className += " active";
-    });
-}
-
-// "Back to Top"-knop functionaliteit
-document.getElementById('backToTop').addEventListener('click', function(e) {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// Scroll event voor tonen/verbergen van "Back to Top" knop
-window.addEventListener('scroll', function() {
-    const backToTop = document.getElementById('backToTop');
-    backToTop.style.opacity = window.scrollY > 100 ? '1' : '0';
-});
-
-  // Back to top button functionality
+  // Filter functie voor de gallery
+  filterSelection("all");
+  
+  function filterSelection(c) {
+      var x, i;
+      x = document.getElementsByClassName("column");
+      if (c === "all") c = "";
+      for (i = 0; i < x.length; i++) {
+          w3RemoveClass(x[i], "show");
+          if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+      }
+  }
+  
+  function w3AddClass(element, name) {
+      var arr1 = element.className.split(" ");
+      var arr2 = name.split(" ");
+      for (var i = 0; i < arr2.length; i++) {
+          if (arr1.indexOf(arr2[i]) === -1) {
+              element.className += " " + arr2[i];
+          }
+      }
+  }
+  
+  function w3RemoveClass(element, name) {
+      var arr1 = element.className.split(" ");
+      var arr2 = name.split(" ");
+      for (var i = 0; i < arr2.length; i++) {
+          while (arr1.indexOf(arr2[i]) > -1) {
+              arr1.splice(arr1.indexOf(arr2[i]), 1);
+          }
+      }
+      element.className = arr1.join(" ");
+  }
+  
+  // Actieve klasse toevoegen aan geselecteerde filterknop
+  var btnContainer = document.getElementById("myBtnContainer");
+  var btns = btnContainer.getElementsByClassName("btn");
+  for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function() {
+          var current = document.getElementsByClassName("active");
+          if (current.length > 0) {
+              current[0].className = current[0].className.replace(" active", "");
+          }
+          this.className += " active";
+      });
+  }
+  
+  // "Back to Top"-knop functionaliteit
   document.getElementById('backToTop').addEventListener('click', function(e) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-
-  // Scroll event for showing/hiding back to top button
+  
+  // Scroll event voor tonen/verbergen van "Back to Top" knop
   window.addEventListener('scroll', function() {
       const backToTop = document.getElementById('backToTop');
-      backToTop.style.opacity = window.scrollY > 100 ? '1' : '0'; // Show or hide button
+      backToTop.style.opacity = window.scrollY > 100 ? '1' : '0'; // Toon of verberg knop
   });
-
-  // Toggle function to open/close sidebar
-var togglerBtn = document.getElementById('togglerBtn');
-var closeBtn = document.getElementById('closeBtn');
-
-function toggleSidenav() {
-    const sidenav = document.getElementById("sidenav");
-    const contentMain = document.getElementById("content-main");
-    if (sidenav.style.width === "300px") {
-        sidenav.style.width = "0";
-        contentMain.style.marginRight = "0";
-        contentMain.style.backgroundColor = "#9db8d2"; 
-    } else {
-        sidenav.style.width = "300px";
-        contentMain.style.marginRight = "300px";
-        contentMain.style.backgroundColor = "rgba(0,0,0,0.8)"; 
-    }
-}
-
-// Event listener for the toggle button
-togglerBtn.addEventListener("click", toggleSidenav);
-closeBtn.addEventListener("click", function() {
-    document.getElementById("sidenav").style.width = "0";
-    document.getElementById("content-main").style.marginRight = "0";
-});
-
-// Scroll event for hiding/showing the navigation bar
-let lastScrollPosition = 0;
-const navbar = document.getElementById('navbar');
-const backToTop = document.getElementById('backToTop');
-
-document.addEventListener('scroll', function() {
-    // Navigatiebalk verbergen of tonen
-    if (window.scrollY > lastScrollPosition) {
-        navbar.classList.add('hidden');
-    } else {
-        navbar.classList.remove('hidden');
-    }
-    lastScrollPosition = window.scrollY;
-
-    // Back to top knop tonen of verbergen
-    backToTop.style.opacity = window.scrollY > 100 ? '1' : '0'; // Show or hide button
-}, { passive: true });
-
-
-</script>
+  
+  // Toggle functie om sidebar te openen/sluiten
+  var togglerBtn = document.getElementById('togglerBtn');
+  var closeBtn = document.getElementById('closeBtn');
+  
+  function toggleSidenav() {
+      const sidenav = document.getElementById("sidenav");
+      const contentMain = document.getElementById("content-main");
+      if (sidenav.style.width === "300px") {
+          sidenav.style.width = "0";
+          contentMain.style.marginRight = "0";
+          contentMain.style.backgroundColor = "#9db8d2"; 
+      } else {
+          sidenav.style.width = "300px";
+          contentMain.style.marginRight = "300px";
+          contentMain.style.backgroundColor = "rgba(0,0,0,0.8)"; 
+      }
+  }
+  
+  // Event listeners voor de toggle knoppen
+  togglerBtn.addEventListener("click", toggleSidenav);
+  closeBtn.addEventListener("click", function() {
+      document.getElementById("sidenav").style.width = "0";
+      document.getElementById("content-main").style.marginRight = "0";
+  });
+  
+  // Scroll event voor verbergen/toon van de navigatiebalk
+  let lastScrollPosition = 0;
+  const navbar = document.getElementById('navbar');
+  
+  document.addEventListener('scroll', function() {
+      // Navigatiebalk verbergen of tonen
+      if (window.scrollY > lastScrollPosition) {
+          navbar.classList.add('hidden');
+      } else {
+          navbar.classList.remove('hidden');
+      }
+      lastScrollPosition = window.scrollY;
+  });
+  
+  // Functie om te sorteren op prijs
+  function sortByPrice() {
+      const gallery = document.getElementById('gallery');
+      const items = Array.from(gallery.children);
+  
+      items.sort((a, b) => {
+          const priceA = parseFloat(a.querySelector('.price').textContent.replace('€', '').replace(',', '.'));
+          const priceB = parseFloat(b.querySelector('.price').textContent.replace('€', '').replace(',', '.'));
+          return priceA - priceB; // Sorteer oplopend
+      });
+  
+      // Leeg de gallery en voeg de gesorteerde items weer toe
+      gallery.innerHTML = '';
+      items.forEach(item => gallery.appendChild(item));
+  }
+  
+  // Hier komt de filterSelection functie en andere scripts als nodig
+  </script>
+  
 
   
 
