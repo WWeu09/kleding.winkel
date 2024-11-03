@@ -401,56 +401,60 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
+/* Basisstijl voor de navigatiebalk */
 .nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #ffffff;
-            padding: 12px 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 20;
-            width: 100%;
-            max-width: 1200px;
-            opacity: 1; /* Volledige opaciteit standaard */
-            transition: top 0.3s ease, opacity 0.3s ease; /* Voor een soepele overgang */
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    padding: 12px 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 20;
+    width: 100%;
+    max-width: 1200px;
+    opacity: 1;
+    transition: top 0.3s ease, opacity 0.3s ease;
+}
 
-        /* Hidden state of the navigation bar */
-        .nav.hidden {
-            top: -100px; /* Verberg de navbar door deze omhoog te bewegen */
-            opacity: 0; /* Maak deze onzichtbaar */
-        }
+/* Verborgen status van de navigatiebalk */
+.nav.hidden {
+    top: -100px;
+    opacity: 0;
+}
 
-        /* Link styles */
-        .nav a {
-            color: #007BFF;
-            text-decoration: none;
-            padding: 10px 15px; /* Padding voor de klikbare ruimte */
-            font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease;
-            white-space: nowrap; /* Zorg ervoor dat de tekst niet afbreekt */
-        }
+/* Stijl voor de links */
+.nav a {
+    color: #007BFF;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+}
 
-        /* Hover effect op links */
-        .nav a:hover {
-            color: #0056b3; /* Verander de linkkleur bij hover */
-            transform: scale(1.1); /* Vergroot iets bij hover */
-        }
+/* Hover effect op links */
+.nav a:hover {
+    color: #0056b3;
+    transform: scale(1.1);
+}
 
-        /* 3D effect op nav bij hover */
-        .nav:hover {
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Schaduw effect voor diepte */
-        }
+/* Schaduw effect bij hover over de navigatiebalk */
+.nav:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
 
-        /* Content styles */
-        .content {
-            padding: 60px; /* Zorg ervoor dat de content niet achter de navbar komt */
-        }
+/* Contentstijl */
+.content {
+    padding-top: 80px; /* Zorg ervoor dat de content niet achter de navbar komt */
+    padding: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+}
 
 
 /* Footer styling */
@@ -540,6 +544,7 @@ footer .footer-copyrights p a {
         color: #0056b3; /* Donkerdere kleur bij hover */
     }
     
+    
 </style>
 
 
@@ -550,10 +555,8 @@ footer .footer-copyrights p a {
  <!-- Navigation Bar -->
 <div class="nav" id="navbar">
   <a href="#">Home</a>
-  <a href="#about" class="button">About</a>
-  <a href="#services">Services</a>
   <a href="#contact">Contact</a>
-  <a href="annoucment.html">update</a>
+  <a href="annoucment.html">updates</a>
   
 </div>
 <div>
@@ -571,6 +574,8 @@ footer .footer-copyrights p a {
       <li><a href="row">𝙋𝙤𝙧𝙩𝙤𝙛𝙡𝙞𝙤</a></li>
       <li><a href="#">𝙋𝙤𝙧𝙩𝙤𝙛𝙡𝙞𝙤</a></li>
       <li><a href="#">𝑪𝒐𝒏𝒕𝒂𝒄𝒕</a></li>
+      <a href="#about" class="button">About</a>
+      <a href="#services">Services</a>
     </ul>
     <span id="closeBtn">x</span>
   </div>
@@ -588,6 +593,7 @@ footer .footer-copyrights p a {
 </div>
 
 <h1>Rafle L'argent</h1 auto>
+  <p>Website is geopend vanaf Vrijdag 18:00 tot zaterdag 23:59</p>
 <hr>
 
 <h2 style="font-size: 20px; font-weight: bold; color: #333; margin-bottom: 5px;">Pre Release</h2>
