@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>𝑅𝐹</title>
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <style>
 * {
@@ -247,10 +248,12 @@ h1 {
     margin: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: blur(5px); /* Altijd geblurd */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery-item:hover {
+  
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
@@ -536,23 +539,29 @@ footer .footer-copyrights p a {
         text-decoration: underline; /* Onderstreping bij hover */
         color: #0056b3; /* Donkerdere kleur bij hover */
     }
+    
 </style>
 
 
 </head>
 <body>
 
+  
  <!-- Navigation Bar -->
 <div class="nav" id="navbar">
   <a href="#">Home</a>
   <a href="#about" class="button">About</a>
   <a href="#services">Services</a>
   <a href="#contact">Contact</a>
+  <a href="annoucment.html">update</a>
+  
 </div>
+<div>
 
 <!-- Toggle Button for Sidebar -->
-<button id="togglerBtn">☰</button>
-<p>this button is defect</p>
+<button id="togglerBtn"></button>
+<p>This button is defect</p>
+
 
 <!-- Sidebar -->
 <aside id="sidenav">
@@ -894,7 +903,7 @@ footer .footer-copyrights p a {
       items.forEach(item => gallery.appendChild(item));
   }
   
-  // Hier komt de filterSelection functie en andere scripts als nodig
+
   </script>
   
 
